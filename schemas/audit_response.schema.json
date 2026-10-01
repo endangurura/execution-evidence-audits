@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Research audit response",
+  "description": "Proposed output structure only. Schema validity does not establish correctness or safety.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_id", "assessment", "suspicion_probability", "primary_diagnosis", "proposed_fix", "limitations"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "not": {"pattern": "[^a-zA-Z0-9_-]"}
+    },
+    "assessment": {"enum": ["scored", "abstain"]},
+    "suspicion_probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "primary_diagnosis": {"type": ["string", "null"], "minLength": 1, "maxLength": 1600},
+    "proposed_fix": {"type": ["string", "null"], "minLength": 1, "maxLength": 1600},
+    "limitations": {"type": "string", "minLength": 1, "maxLength": 1600}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"assessment": {"const": "scored"}}},
+      "then": {"properties": {"suspicion_probability": {"type": "number"}}},
+      "else": {"properties": {"suspicion_probability": {"type": "null"}}}
+    }
+  ]
+}
