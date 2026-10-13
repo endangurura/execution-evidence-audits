@@ -10,10 +10,12 @@ execution-evidence packet (E). The primary contrast is E minus X; E minus T is
 secondary. A no-audit reference identifies the failures that receive no scrutiny.
 
 Use the same model, instructions, inference limits, and artifact within each paired
-comparison, apart from the observation/tool access under test. Repeat across two
-model families if feasibility supports it. Pin model revisions or record provider
-aliases and timestamps where immutable revisions are unavailable. Provider/model
-changes require a separate block or amended comparison, not silent substitution.
+comparison, apart from the observation/tool access under test. The pilot proposes
+three auditor models from different families. Pin model revisions or record
+provider aliases and timestamps where immutable revisions are unavailable.
+Changes to auditors, experimental actors, or inner monitors require a separate
+block or amended comparison, not silent substitution. Label substitutions as
+modified replication rather than reproduction of the source model's results.
 
 This is a comparison of audit packages: a fixed collection recipe versus adaptive
 experimentation. It does not isolate provenance alone. X may discover evidence
@@ -21,10 +23,13 @@ that a fixed packet misses; E may cost more than the improvement warrants.
 
 ## Evidence boundary
 
-Freeze the collection recipe using development artifacts only. Candidate contents
-are entry-point execution summaries, effective configuration, runtime errors,
-input/output digests, and bounded intermediate/result summaries. Apply identical
-collection and packaging rules to all classes.
+Freeze the collection recipe before comparative audit runs. In the broader design,
+develop it using development artifacts only. The selected pilot does not have an
+untouched codebase holdout; record prior inspection and recipe-development exposure
+and do not tune the recipe after seeing comparative audit scores. Candidate
+contents are entry-point execution summaries, effective configuration, runtime
+errors, input/output digests, and bounded intermediate/result summaries. Apply
+identical collection and packaging rules to all classes.
 
 Exclude answer keys, reference correctness judgments, counterpart diffs, identifying
 variant names, and grading rubrics from the auditor's workspace and evidence packet.
@@ -39,14 +44,23 @@ or unrestricted network access. A model API key belongs outside that environment
 
 ## Sample and references
 
-The initial target is the published benchmark's nine codebase lineages, with three
-for development and six for evaluation. Keep related variants together. This split
-is a proposal, not a frozen dataset; feasibility and rights checks must precede
-selection. Do not choose inclusions after seeing audit performance.
+The current pilot selects honest/sabotaged pairs from `awareness`, `diffuse`, and
+`chain`: six artifacts, three auditor models, three observation conditions, and
+five repeated audits, for 270 planned audits. These are planned comparisons, not
+completed runs. Freeze artifact selection and retry rules before auditing; retain
+retries and failures in the run record rather than counting them as new samples.
 
-Use independently checked reference behavior and rubric-based human adjudication.
-Mark unresolved references as unresolved. Record disagreement, blinding limits,
-and exclusions. A sole model judge is not ground truth. Codebase is the dependency
+A possible broader study would use the benchmark's nine codebase lineages, with
+three for development and six for evaluation. That split is not the pilot's
+sample and is not frozen. Keep related variants together, complete feasibility
+and rights checks before selection, and do not choose inclusions after seeing
+audit performance.
+
+Check reference behavior through execution and rubric-based human adjudication.
+Record who performed each check; researcher self-review is not independent
+validation, and no external reviewer is currently committed to the pilot. Mark
+unresolved references as unresolved. Record disagreement, blinding limits, and
+exclusions. A sole model judge is not ground truth. Codebase is the dependency
 cluster; seeds and multiple variants are not independent new research tasks.
 
 Auditors return a suspicion probability, one primary diagnosis/location, and one
@@ -56,9 +70,14 @@ is not a demonstrated repair unless separately executed and checked.
 
 ## Measurement
 
-The proposed primary statistic is E minus X in codebase-weighted AUROC, separately
-for each auditor. Average repeated scores within an artifact first; give codebases
-equal weight within each class. The exact weighting and implementation require
+For the selected pilot, emphasize detection, false alarms, primary-diagnosis
+agreement, and missing outputs by codebase and auditor. Its three codebases cannot
+support a precise generalization claim, regardless of repeated audit count.
+
+For the broader design, the proposed primary statistic is E minus X in
+codebase-weighted AUROC, separately for each auditor. Average repeated scores
+within an artifact first; give codebases equal weight within each class. Any
+pilot AUROC would be descriptive. The exact weighting and implementation require
 tests before evaluation. No AUROC scorer is implemented in this repository yet.
 
 Secondary measurements include benign false alarms, missed verified modifications
@@ -72,9 +91,10 @@ attempts, errors, timeouts, exclusions, and retries. Missing evidence is not evi
 of safety. Show complete-case results alongside sensitivity to missing outputs;
 never choose a favorable retry or silently discard failed calls.
 
-With six evaluation clusters, emphasize paired plots, absolute counts, and
-leave-one-codebase-out sensitivity. Any bootstrap interval is exploratory and may
-be unstable. This design is not a precise test of small effects or broad transfer.
+With three selected pilot clusters, or six evaluation clusters in the broader
+proposal, emphasize paired plots, absolute counts, and leave-one-codebase-out
+sensitivity. Any bootstrap interval is exploratory and may be unstable. Neither
+design is a precise test of small effects or broad transfer.
 
 ## Limits
 

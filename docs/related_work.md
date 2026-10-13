@@ -63,12 +63,15 @@ experiment below are our interpretation, not endorsements by the authors.
   understand and steer what training teaches a model, rather than relying only on
   retrospective evaluations. Distinguishes changing learned behavior from merely
   suppressing one observable representation. This is a research agenda, not
-  evidence that generalization is fully controllable. Training interventions and
-  representation-level monitoring remain outside the present experiment.
+  evidence that generalization is fully controllable. Developing new training
+  interventions or representation-level monitors is outside this study; the
+  selected pilot instead reproduces existing research, including activation probing.
 - **[Eric Ho on technical alignment](https://x.com/eric_ho/status/2105359054763880598)**,
   September 30, 2026. Presents Goodfire's interpretability-centered research thesis.
   That is a strategic perspective, not proof that interpretability is necessary or
-  sufficient for this audit task. Activation monitoring is outside the current study.
+  sufficient for this audit task. Monitoring the auditing models' activations is
+  outside this study; reproducing the `diffuse` codebase's activation-probe
+  experiments is part of the selected pilot.
 - **[Joe on agent security and safety](https://x.com/joedaroo/status/2104335929293127851)**,
   September 28, 2026. Advocates evidence outside an agent's control, layered controls,
   and collaboration between security and safety. The author explicitly speaks in a

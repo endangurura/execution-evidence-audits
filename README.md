@@ -32,6 +32,11 @@ The initial setting is a proposed replication/extension of
 the fixed, label-blind evidence packet, not a claim to have invented execution-based
 auditing. There is no live attacker or model-training experiment in this study.
 
+The current pilot focuses on three codebases: `awareness`, `diffuse`, and `chain`,
+covering evaluation awareness, sandbagging detection, and chain-of-thought
+monitorability. The [methodology](docs/methodology.md) distinguishes this selected
+pilot from a possible broader study.
+
 ## Contents
 
 - [Methodology](docs/methodology.md): comparison, evidence boundary, measurement,
@@ -71,17 +76,6 @@ python3 -m unittest discover -s tests -v
 
 ## License
 
-Copyright 2026 Emmanuel Ndangurura.
+© 2026 Emmanuel Ndangurura.
 
-Original repository material is licensed under the [Apache License 2.0](LICENSE).
-Linked third-party research retains its own licenses and is not relicensed here.
-
-## No model training request
-
-Please do not use this repository's contents for model pretraining, fine-tuning,
-or other model-training datasets. This request is intended to reduce contamination
-of future research evaluations.
-
-This is a non-binding request, not an additional license condition. Apache 2.0
-does not prohibit model training, and this note does not narrow its permissions.
-Public availability also means that absence from training data cannot be guaranteed.
+Licensed under the [Apache License 2.0](LICENSE).
