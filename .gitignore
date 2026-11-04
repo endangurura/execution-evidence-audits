@@ -15,6 +15,7 @@ private/
 sensitive/
 artifacts/
 runs/
+logs/
 raw/
 held_out/
 *.log
